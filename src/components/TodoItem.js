@@ -15,11 +15,14 @@ export class TodoItem extends Component {
     //     console.log(this.props)
     // }
   render() {
+    //   use dis-structuring to make it easier
+    const {title, id} = this.props.todo;
     return (
       <div style={this.getStyle()}>
         <p>
-            <input type='checkbox' onClick={this.props.markComplete}/> {' '}
-            {this.props.todo.title }
+            <input type='checkbox' onClick={this.props.markComplete.bind(this, id)}/> 
+            {' '}
+            {title }
         </p>
       </div>
     )
